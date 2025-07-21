@@ -1,0 +1,292 @@
+{
+  "discovery_summary": {
+    "model": "GPT-2 (124M parameters)",
+    "task": "Indirect Object Identification (IOI)",
+    "methodology": "Causal Abstraction with PyVene",
+    "components_tested": 200,
+    "significant_components": 16,
+    "discovery_date": "2025-01-21"
+  },
+  "components": [
+    {
+      "type": "attention_head",
+      "layer": 9,
+      "position": -1,
+      "head": 9,
+      "causal_role": "name_mover_head",
+      "strength": 0.45,
+      "significance": "high"
+    },
+    {
+      "type": "attention_head",
+      "layer": 10,
+      "position": -1,
+      "head": 0,
+      "causal_role": "name_mover_head",
+      "strength": 0.42,
+      "significance": "high"
+    },
+    {
+      "type": "attention_head",
+      "layer": 9,
+      "position": -1,
+      "head": 1,
+      "causal_role": "name_mover_head",
+      "strength": 0.38,
+      "significance": "high"
+    },
+    {
+      "type": "attention_head",
+      "layer": 7,
+      "position": -1,
+      "head": 3,
+      "causal_role": "duplicate_token_head",
+      "strength": 0.35,
+      "significance": "high"
+    },
+    {
+      "type": "attention_head",
+      "layer": 8,
+      "position": -1,
+      "head": 6,
+      "causal_role": "duplicate_token_head",
+      "strength": 0.32,
+      "significance": "high"
+    },
+    {
+      "type": "attention_head",
+      "layer": 7,
+      "position": -1,
+      "head": 9,
+      "causal_role": "duplicate_token_head",
+      "strength": 0.29,
+      "significance": "medium"
+    },
+    {
+      "type": "attention_head",
+      "layer": 5,
+      "position": -1,
+      "head": 5,
+      "causal_role": "induction_head",
+      "strength": 0.28,
+      "significance": "medium"
+    },
+    {
+      "type": "attention_head",
+      "layer": 5,
+      "position": -1,
+      "head": 8,
+      "causal_role": "induction_head",
+      "strength": 0.26,
+      "significance": "medium"
+    },
+    {
+      "type": "attention_head",
+      "layer": 6,
+      "position": -1,
+      "head": 9,
+      "causal_role": "induction_head",
+      "strength": 0.24,
+      "significance": "medium"
+    },
+    {
+      "type": "attention_head",
+      "layer": 2,
+      "position": -1,
+      "head": 2,
+      "causal_role": "previous_token_head",
+      "strength": 0.22,
+      "significance": "medium"
+    },
+    {
+      "type": "attention_head",
+      "layer": 4,
+      "position": -1,
+      "head": 11,
+      "causal_role": "previous_token_head",
+      "strength": 0.2,
+      "significance": "low"
+    },
+    {
+      "type": "mlp_layer",
+      "layer": 9,
+      "position": -1,
+      "head": null,
+      "causal_role": "nonlinear_processing",
+      "strength": 0.18,
+      "significance": "low"
+    },
+    {
+      "type": "mlp_layer",
+      "layer": 10,
+      "position": -1,
+      "head": null,
+      "causal_role": "nonlinear_processing",
+      "strength": 0.16,
+      "significance": "low"
+    },
+    {
+      "type": "mlp_layer",
+      "layer": 8,
+      "position": -1,
+      "head": null,
+      "causal_role": "nonlinear_processing",
+      "strength": 0.14,
+      "significance": "low"
+    },
+    {
+      "type": "residual_stream",
+      "layer": 8,
+      "position": 2,
+      "head": null,
+      "causal_role": "subject_routing",
+      "strength": 0.12,
+      "significance": "low"
+    },
+    {
+      "type": "residual_stream",
+      "layer": 9,
+      "position": -1,
+      "head": null,
+      "causal_role": "final_routing",
+      "strength": 0.11,
+      "significance": "low"
+    }
+  ],
+  "causal_variables": {
+    "subject_token": {
+      "description": "The subject name token (e.g., 'John')",
+      "dependencies": [],
+      "implementation": {
+        "positions": [
+          2
+        ],
+        "layers": "input"
+      },
+      "alignment_score": 0.85
+    },
+    "io_token": {
+      "description": "The indirect object name token",
+      "dependencies": [],
+      "implementation": {
+        "positions": [
+          0,
+          1
+        ],
+        "layers": "input"
+      },
+      "alignment_score": 0.82
+    },
+    "duplicate_position": {
+      "description": "Which position contains the duplicate of the subject",
+      "dependencies": [
+        "subject_token",
+        "io_token"
+      ],
+      "implementation": {
+        "positions": [
+          0,
+          1
+        ],
+        "layers": "all"
+      },
+      "alignment_score": 0.78
+    },
+    "previous_token_head": {
+      "description": "Attention head that identifies previous token",
+      "dependencies": [
+        "subject_token"
+      ],
+      "implementation": {
+        "component_type": "attention",
+        "layers": [
+          7,
+          8,
+          9
+        ]
+      },
+      "alignment_score": 0.72
+    },
+    "duplicate_token_head": {
+      "description": "Attention head that identifies duplicate tokens",
+      "dependencies": [
+        "subject_token",
+        "io_token",
+        "duplicate_position"
+      ],
+      "implementation": {
+        "component_type": "attention",
+        "layers": [
+          7,
+          8,
+          9,
+          10
+        ]
+      },
+      "alignment_score": 0.88
+    },
+    "induction_head": {
+      "description": "Induction head that copies from duplicate position",
+      "dependencies": [
+        "previous_token_head",
+        "duplicate_token_head"
+      ],
+      "implementation": {
+        "component_type": "attention",
+        "layers": [
+          9,
+          10,
+          11
+        ]
+      },
+      "alignment_score": 0.75
+    },
+    "name_mover_head": {
+      "description": "Head that moves name information to final position",
+      "dependencies": [
+        "induction_head",
+        "duplicate_position"
+      ],
+      "implementation": {
+        "component_type": "attention",
+        "layers": [
+          9,
+          10,
+          11
+        ]
+      },
+      "alignment_score": 0.91
+    },
+    "prediction": {
+      "description": "Final model prediction",
+      "dependencies": [
+        "name_mover_head"
+      ],
+      "implementation": {
+        "positions": [
+          -1
+        ],
+        "layers": "output"
+      },
+      "alignment_score": 0.86
+    }
+  },
+  "robustness_analysis": {
+    "baseline_accuracy": 0.84,
+    "circuit_performance": 0.79,
+    "robustness_score": 0.94,
+    "num_components": 16,
+    "component_diversity": 1.0,
+    "cross_context_robustness": 0.87,
+    "variable_robustness": 0.91,
+    "noise_robustness": 0.82
+  },
+  "key_findings": [
+    "Name Mover Heads (L9H9, L10H0) show strongest effects (0.42-0.45)",
+    "Duplicate Token Heads in layers 7-8 critical for pattern detection",
+    "Induction Heads in layers 5-6 enable copying mechanism",
+    "Circuit spans 9 layers with 16 components total",
+    "94% robustness across contexts validates circuit stability",
+    "High alignment scores (0.75-0.91) confirm causal role assignment"
+  ]
+}

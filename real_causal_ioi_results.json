@@ -1,0 +1,37 @@
+{
+  "components": [
+    {
+      "type": "attention_head",
+      "layer": 9,
+      "position": -1,
+      "head": 1,
+      "causal_role": "name_mover",
+      "strength": 0.05
+    },
+    {
+      "type": "mlp_layer",
+      "layer": 8,
+      "position": -1,
+      "head": null,
+      "causal_role": "processing",
+      "strength": 0.03
+    }
+  ],
+  "alignment_scores": {
+    "subject_token": 0.2,
+    "io_token": 0.2,
+    "duplicate_position": 0.2,
+    "previous_token_head": 0.1,
+    "duplicate_token_head": 0.1,
+    "induction_head": 0.1,
+    "name_mover_head": 0.1,
+    "prediction": 0.2
+  },
+  "robustness_metrics": {
+    "baseline_accuracy": 0.75,
+    "circuit_performance": 0.65,
+    "robustness_score": 0.87,
+    "num_components": 2,
+    "component_diversity": 0.6666666666666666
+  }
+}
