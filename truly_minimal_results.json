@@ -1,0 +1,11 @@
+{
+  "test_type": "truly_minimal",
+  "steps_completed": [
+    "model_loading",
+    "tokenization",
+    "inference_no_logits",
+    "lm_prediction"
+  ],
+  "failures": [],
+  "honest_conclusion": "\u2705 Basic GPT-2 inference works. Can build interventions on this."
+}
