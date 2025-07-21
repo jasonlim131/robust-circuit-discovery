@@ -1,0 +1,172 @@
+{
+  "circuits": [
+    {
+      "name": "robust_circuit_discovered_1753052092",
+      "components": [
+        "layer_0_mlp_output",
+        "layer_0_block_output",
+        "layer_1_mlp_output",
+        "layer_1_block_output",
+        "layer_2_mlp_output",
+        "layer_2_block_output",
+        "layer_3_mlp_output",
+        "layer_3_block_output",
+        "layer_4_mlp_output",
+        "layer_4_block_output",
+        "layer_5_mlp_output",
+        "layer_5_block_output",
+        "layer_6_mlp_output",
+        "layer_6_block_output",
+        "layer_7_mlp_output",
+        "layer_7_block_output",
+        "layer_8_mlp_output",
+        "layer_8_block_output",
+        "layer_9_mlp_output",
+        "layer_9_block_output",
+        "layer_10_mlp_output",
+        "layer_10_block_output",
+        "layer_11_mlp_output",
+        "layer_11_block_output"
+      ],
+      "stability_metrics": {
+        "structural_consistency": 1.0,
+        "functional_consistency": 0.9140283667685644,
+        "robustness_score": 0.9570141833842822,
+        "variance_explained": 0.16487868171419726,
+        "context_independence": 0.9140283667685644
+      },
+      "invariant_patterns": [
+        {
+          "pattern_type": "discovered",
+          "components": [
+            "layer_0_mlp_output",
+            "layer_0_block_output",
+            "layer_1_mlp_output",
+            "layer_1_block_output",
+            "layer_2_mlp_output",
+            "layer_2_block_output",
+            "layer_3_mlp_output",
+            "layer_3_block_output",
+            "layer_4_mlp_output",
+            "layer_4_block_output",
+            "layer_5_mlp_output",
+            "layer_5_block_output",
+            "layer_6_mlp_output",
+            "layer_6_block_output",
+            "layer_7_mlp_output",
+            "layer_7_block_output",
+            "layer_8_mlp_output",
+            "layer_8_block_output",
+            "layer_9_mlp_output",
+            "layer_9_block_output",
+            "layer_10_mlp_output",
+            "layer_10_block_output",
+            "layer_11_mlp_output",
+            "layer_11_block_output"
+          ],
+          "confidence": 1.0,
+          "contexts_tested": 30,
+          "failure_modes": [],
+          "functional_description": "Pattern involving 24 components"
+        }
+      ],
+      "robustness_score": 0.9398198567379952,
+      "contexts_tested": [
+        "when alice went to paris, alice",
+        "Actually, when alice went to paris, alice",
+        "When Alice went to Paris, Alice?",
+        "WHEN ALICE WENT TO PARIS, ALICE",
+        "When Alice went to Paris, Alice obviously",
+        "When Alice went to Paris, Alice",
+        "When Alice went to Paris, Alice!",
+        "When Alice went to Paris, Alice.",
+        "When Alice went to Tokyo, Alice"
+      ],
+      "discovery_metadata": {
+        "discovery_time": 1753052092.932807,
+        "pattern_confidence": 1.0,
+        "num_behavioral_tests": 2
+      }
+    }
+  ],
+  "discovery_config": {
+    "templates": [
+      "When {name} went to {place}, {name}",
+      "{name} loves {object}. {name}",
+      "In {place}, {name} found {object}. {name}",
+      "{name} and {other_name} went to {place}. {name}",
+      "Yesterday {name} bought {object} at {place}. Today {name}",
+      "{name} told {other_name} about {object}. {name}",
+      "The {object} belonged to {name}. {name}",
+      "{name}: I like {object}. {name}:"
+    ],
+    "variables": {
+      "name": [
+        "Alice",
+        "Bob",
+        "Charlie",
+        "Diana",
+        "Emma",
+        "Frank",
+        "Grace",
+        "Henry",
+        "Maya",
+        "Zara",
+        "Alex",
+        "Sam",
+        "Jordan",
+        "Riley",
+        "Casey",
+        "Drew"
+      ],
+      "other_name": [
+        "Sarah",
+        "Mike",
+        "Lisa",
+        "John",
+        "Kate",
+        "Paul",
+        "Nina",
+        "Ryan",
+        "Ella",
+        "Owen",
+        "Sophia",
+        "Lucas",
+        "Ava",
+        "Noah",
+        "Mia",
+        "Liam"
+      ],
+      "place": [
+        "Paris",
+        "Tokyo",
+        "school",
+        "work",
+        "home",
+        "the park",
+        "the store",
+        "the library",
+        "the cafe",
+        "the beach",
+        "downtown",
+        "the museum"
+      ],
+      "object": [
+        "a book",
+        "a phone",
+        "a car",
+        "flowers",
+        "food",
+        "a gift",
+        "a pen",
+        "a laptop",
+        "a watch",
+        "a camera",
+        "music",
+        "a ticket",
+        "a key"
+      ]
+    },
+    "timestamp": 1753052092.9336953
+  }
+}

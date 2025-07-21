@@ -1,0 +1,167 @@
+{
+  "discovery_metadata": {
+    "model_name": "gpt2",
+    "num_circuits_found": 1,
+    "best_robustness_score": 0.9398198567379952,
+    "templates_tested": 8,
+    "variables_per_template": {
+      "name": 16,
+      "other_name": 16,
+      "place": 12,
+      "object": 13
+    }
+  },
+  "circuits": [
+    {
+      "name": "robust_circuit_discovered_1753052092",
+      "components": [
+        "layer_0_mlp_output",
+        "layer_0_block_output",
+        "layer_1_mlp_output",
+        "layer_1_block_output",
+        "layer_2_mlp_output",
+        "layer_2_block_output",
+        "layer_3_mlp_output",
+        "layer_3_block_output",
+        "layer_4_mlp_output",
+        "layer_4_block_output",
+        "layer_5_mlp_output",
+        "layer_5_block_output",
+        "layer_6_mlp_output",
+        "layer_6_block_output",
+        "layer_7_mlp_output",
+        "layer_7_block_output",
+        "layer_8_mlp_output",
+        "layer_8_block_output",
+        "layer_9_mlp_output",
+        "layer_9_block_output",
+        "layer_10_mlp_output",
+        "layer_10_block_output",
+        "layer_11_mlp_output",
+        "layer_11_block_output"
+      ],
+      "stability_metrics": {
+        "structural_consistency": 1.0,
+        "functional_consistency": 0.9140283667685644,
+        "robustness_score": 0.9570141833842822,
+        "variance_explained": 0.16487868171419726,
+        "context_independence": 0.9140283667685644
+      },
+      "invariant_patterns": [
+        {
+          "pattern_type": "discovered",
+          "components": [
+            "layer_0_mlp_output",
+            "layer_0_block_output",
+            "layer_1_mlp_output",
+            "layer_1_block_output",
+            "layer_2_mlp_output",
+            "layer_2_block_output",
+            "layer_3_mlp_output",
+            "layer_3_block_output",
+            "layer_4_mlp_output",
+            "layer_4_block_output",
+            "layer_5_mlp_output",
+            "layer_5_block_output",
+            "layer_6_mlp_output",
+            "layer_6_block_output",
+            "layer_7_mlp_output",
+            "layer_7_block_output",
+            "layer_8_mlp_output",
+            "layer_8_block_output",
+            "layer_9_mlp_output",
+            "layer_9_block_output",
+            "layer_10_mlp_output",
+            "layer_10_block_output",
+            "layer_11_mlp_output",
+            "layer_11_block_output"
+          ],
+          "confidence": 1.0,
+          "contexts_tested": 30,
+          "failure_modes": [],
+          "functional_description": "Pattern involving 24 components"
+        }
+      ],
+      "robustness_score": 0.9398198567379952,
+      "contexts_tested": [
+        "when alice went to paris, alice",
+        "Actually, when alice went to paris, alice",
+        "When Alice went to Paris, Alice?",
+        "WHEN ALICE WENT TO PARIS, ALICE",
+        "When Alice went to Paris, Alice obviously",
+        "When Alice went to Paris, Alice",
+        "When Alice went to Paris, Alice!",
+        "When Alice went to Paris, Alice.",
+        "When Alice went to Tokyo, Alice"
+      ],
+      "discovery_metadata": {
+        "discovery_time": 1753052092.932807,
+        "pattern_confidence": 1.0,
+        "num_behavioral_tests": 2
+      }
+    }
+  ],
+  "validation_results": {
+    "induction_test": 0.1676710829229103,
+    "pattern_test": 0.11302974224090576,
+    "overall": 0.14035041258190803
+  },
+  "motif_analysis": {
+    "universal_patterns": {},
+    "pattern_frequency": {
+      "discovered": 1
+    },
+    "robustness_correlation": {
+      "discovered": 0.9398198567379952
+    },
+    "suggested_motifs": [
+      "Universal component: layer_0_mlp_output",
+      "Universal component: layer_0_block_output",
+      "Universal component: layer_1_mlp_output",
+      "Universal component: layer_1_block_output",
+      "Universal component: layer_2_mlp_output",
+      "Universal component: layer_2_block_output",
+      "Universal component: layer_3_mlp_output",
+      "Universal component: layer_3_block_output",
+      "Universal component: layer_4_mlp_output",
+      "Universal component: layer_4_block_output",
+      "Universal component: layer_5_mlp_output",
+      "Universal component: layer_5_block_output",
+      "Universal component: layer_6_mlp_output",
+      "Universal component: layer_6_block_output",
+      "Universal component: layer_7_mlp_output",
+      "Universal component: layer_7_block_output",
+      "Universal component: layer_8_mlp_output",
+      "Universal component: layer_8_block_output",
+      "Universal component: layer_9_mlp_output",
+      "Universal component: layer_9_block_output",
+      "Universal component: layer_10_mlp_output",
+      "Universal component: layer_10_block_output",
+      "Universal component: layer_11_mlp_output",
+      "Universal component: layer_11_block_output"
+    ]
+  },
+  "evaluation_report": {
+    "overall_score": 0.33246015550909913,
+    "detailed_scores": {
+      "context_consistency": 0.1676710829229103,
+      "variable_independence": 0.1676710829229103,
+      "noise_tolerance": 0.1592875287767648,
+      "intervention_stability": 1.0,
+      "behavioral_tests": [
+        0.17293064739654326,
+        0.1385753701130549
+      ]
+    },
+    "failure_modes": [
+      "Context sensitivity - circuit behavior varies significantly across contexts",
+      "Variable dependence - circuit relies on specific variable instantiations",
+      "Noise sensitivity - circuit fails when interventions are noisy"
+    ],
+    "recommendations": [
+      "Test circuit on more diverse contexts to improve generalization",
+      "Use more variable-invariant features in circuit design",
+      "Implement noise-robust intervention techniques"
+    ]
+  }
+}
