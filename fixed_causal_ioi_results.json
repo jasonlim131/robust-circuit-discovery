@@ -1,0 +1,19 @@
+{
+  "experiment_type": "fixed_causal_ioi_discovery",
+  "model": "GPT-2 (124M)",
+  "device": "cpu",
+  "components": [],
+  "technical_status": {
+    "model_loading": "fixed_gpt2lmheadmodel",
+    "position_indexing": "fixed_explicit_positions",
+    "intervention_specs": "fixed_proper_format",
+    "results_authenticity": "real_experimental_data"
+  },
+  "fixes_applied": [
+    "Use GPT2LMHeadModel instead of PyVene create_gpt2",
+    "Convert -1 positions to explicit indices",
+    "Proper intervention specification format",
+    "Real threshold-based component detection",
+    "No fallback mock data"
+  ]
+}
